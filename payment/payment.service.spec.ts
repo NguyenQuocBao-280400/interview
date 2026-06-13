@@ -1,5 +1,5 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { PaymentService } from './payment.service';
+import {Test, TestingModule} from '@nestjs/testing';
+import {PaymentService} from './payment.service';
 import {PaymentMethod} from "../common/enums/payment-method.enum";
 import {InvoiceStatus} from "../common/enums/invoice-status.enum";
 import {PaymentStatus} from "../common/enums/payment-status.enum";
@@ -49,7 +49,8 @@ describe('PaymentService', () => {
     referenceNumber: '1',
     status: PaymentStatus.Unpaid,
   }
-  it('should support multiple payment methods', () => {
+
+  it('should support multiple payment methods and overpayment', () => {
     const result1 = service.payment(inputInvoice, inputInvoice.outstandingAmount,inputPayment1);
     const newInputInvoice = {
       ...inputInvoice,
@@ -66,7 +67,7 @@ describe('PaymentService', () => {
     expect(result.updatePaymentMethod.status).toBe('PARTIALLY_PAID');
   });
 
-  it('should handle overpayment', () => {
+  it('should handle full payment', () => {
     const customInputPayment1 = {
       ...inputPayment1,
       amount: 1000.00
@@ -76,7 +77,7 @@ describe('PaymentService', () => {
     expect(result.updatePaymentMethod.status).toBe('PAID');
   });
 
-  it('should track unpaid status', () => {
+  it('should handle unfulfilled payment', () => {
     const customInputPayment1 = {
       ...inputPayment1,
       amount: 0.00
