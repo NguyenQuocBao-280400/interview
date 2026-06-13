@@ -25,7 +25,6 @@ describe('InvoiceService', () => {
       taxAmount: item.quantity * item.unitPrice * taxRate
     }));
     const result = service.calculateInvoiceTotal(lineItems, taxRate);
-    console.log(result)
     expect(result.totalForLineItems).toBe(551.00);
     expect(result.totalTax).toBe(38.57);
     expect(result.totalInvoice).toBe(589.57);

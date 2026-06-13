@@ -1,6 +1,5 @@
 import {Injectable} from '@nestjs/common';
 import {CreateInvoiceDto} from './dto/create-invoice.dto';
-import {UpdateInvoiceDto} from './dto/update-invoice.dto';
 import {InvoiceItem} from "../invoice-item/interfaces/invoice-item/invoice-item.interface";
 import {InvoiceTotals} from "./interfaces/invoice/invoice-totals.interfaces";
 
@@ -11,7 +10,6 @@ export class InvoiceService {
         taxRate: number
     ): InvoiceTotals {
         const totalForLineItems = items.reduce((sum, item) => sum + item.lineTotal, 0);
-        const formattedTotal = Number(totalForLineItems.toFixed(2));
         const totalTax = totalForLineItems * taxRate;
         const totalInvoice = totalForLineItems + totalTax;
         return {
