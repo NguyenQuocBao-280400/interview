@@ -32,3 +32,17 @@ const items = [
 ];
 const result = invoiceService.calculateTotals(items);
 // { subTotal: 400, taxTotal: 28, grandTotal: 428 }
+```
+--- 
+##  Yêu cầu
+- Node.js >= 18
+- npm >= 9
+##  Cài đặt dependency
+- npm install
+## Running the Project
+- npm run start:dev
+## Chạy toàn bộ test
+- npm run test
+
+
+
