@@ -19,7 +19,7 @@ Các module chính:
 ## Known Limitations / Assumptions
 - Chỉ hỗ trợ một loại thuế (GST 7%).
 - Không có tích hợp với cổng thanh toán thực tế 
-- Payment status chỉ có 4 trạng thái: `UNPAID`, `PARTIALLY_PAID`, `PAID`, `OVERPAID`.
+- Payment status chỉ có 5 trạng thái: `UNPAID`, `PARTIALLY_PAID`, `PAID`, `OVER_DUE`, `CANCELLED`
 
 ---
 
