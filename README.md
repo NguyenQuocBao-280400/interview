@@ -41,14 +41,14 @@ const result = invoiceService.calculateInvoiceTotal(lineItems, taxRate)
 // { totalForLineItems: 551, totalTax: 38.57, totalInvoice: 589.57 }
 ```
 --- 
-##  Yêu cầu
+## Require
 - Node.js >= 18
 - npm >= 9
-##  Cài đặt dependency
+## Install dependencies
 - npm install
 ## Running the Project
 - npm run start:dev
-## Chạy toàn bộ test
+## Run all tests
 - npm run test
 
 
