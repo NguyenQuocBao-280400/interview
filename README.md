@@ -27,11 +27,18 @@ Các module chính:
 ### Invoice Calculation
 ```ts
 const items = [
-  { quantity: 2, unitPrice: 100 },
-  { quantity: 1, unitPrice: 200 },
+  { id: '1', description: "Monthly Fee", quantity: 1, unitPrice: 500.00 },
+  { id: '2', description: "Activity Fee", quantity: 2, unitPrice: 25.50 },
 ];
-const result = invoiceService.calculateTotals(items);
-// { subTotal: 400, taxTotal: 28, grandTotal: 428 }
+const taxRate = 0.07; // 7% GST
+const lineItems = items.map((item) => ({
+  ...item,
+  lineTotal: item.quantity * item.unitPrice,
+  taxRate: taxRate,
+  taxAmount: item.quantity * item.unitPrice * taxRate
+ }));
+const result = invoiceService.calculateInvoiceTotal(lineItems, taxRate)
+// { totalForLineItems: 551, totalTax: 38.57, totalInvoice: 589.57 }
 ```
 --- 
 ##  Yêu cầu
